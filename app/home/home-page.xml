@@ -1,39 +1,26 @@
-<Page loaded="pageLoaded"  backgroundSpanUnderStatusBar="true" 
-xmlns:lv="nativescript-ui-listview"
-xmlns:CheckBox="@nstudio/nativescript-checkbox">
+<Page loaded="pageLoaded" backgroundSpanUnderStatusBar="true"
+    xmlns:lv="nativescript-ui-listview">
 
     <ActionBar title="ToDoList">
-  <ActionItem tap="onDelete"
-      ios.systemIcon="16" ios.position="right"
-      text="delete" android.position="popup"></ActionItem>
+        <ActionItem tap="onDelete" ios.systemIcon="16" ios.position="right" text="delete" android.position="popup"></ActionItem>
     </ActionBar>
     <GridLayout rows="auto" columns="*">
         <StackLayout orientation="vertical" row="0" height="100%">
             <DockLayout horizontalAlignment="stretch">
                 <Button text="Add" tap="{{ onButtonTap }}" dock="right" />
-                <TextField text="{{ textFieldValue }}" dock="top"
-                    hint="Enter text..." />
+                <TextField text="{{ textFieldValue }}" dock="top" hint="Enter text..." />
             </DockLayout>
 
-            <lv:RadListView items="{{ myObservableArray }}"
-                itemTap="{{onItemTap}}"
-                marginTop="1"
-                pullToRefresh="true"
-                pullToRefreshInitiated="{{onPullToRefreshInitiated}}"
-                verticalAlignment="stretch"
-                backgroundColor="#D8D8D8"
-                selectionBehavior="None" 
-                height="100%">
-                     
-                <lv:RadListView.itemTemplate >
-                    <flexDirection="row" padding="8" backgroundColor="White" class="todo">
-                            <CheckBox:CheckBox text="CheckBox Label" checked="false" />
+            <lv:RadListView items="{{ myObservableArray }}" itemTap="{{onItemTap}}" marginTop="1" pullToRefresh="true" pullToRefreshInitiated="{{onPullToRefreshInitiated}}" verticalAlignment="stretch" backgroundColor="#D8D8D8" selectionBehavior="None" height="100%">
 
+                <lv:RadListView.itemTemplate >
+                    <FlexboxLayout flexDirection="row" padding="8" backgroundColor="White" class="todo">
+                        <Label text="{{ $value }}" verticalAlignment="center" style="width: 60%" />
                     </FlexboxLayout>
                 </lv:RadListView.itemTemplate>
             </lv:RadListView>
         </StackLayout>
 
-        <ActivityIndicator busy="{{ isBusy }}"  row="1"  width="50" height="50"/>
+        <ActivityIndicator busy="{{ isBusy }}" row="1" width="50" height="50"/>
     </GridLayout>
 </Page>
