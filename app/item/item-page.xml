@@ -1,0 +1,7 @@
+<Page   navigatedTo="onNavigatedTo" class="page" backgroundSpanUnderStatusBar="true">
+    <ActionBar title="{{item}}" class="action-bar"></ActionBar>
+
+    <StackLayout padding="16">
+        <Label text="{{item}}" />
+    </StackLayout>
+</Page>
